@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteBook</title>
+</head>
+<body>
+    <div id="div1">
+        <h1>Booksky </h1>
+    </div>
+    <div  id="overlay"> </div>
+    <div id="container">
+         <div class="div2">
+          <h2> Genre </h2>
+          <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit incidunt nostrum, velit rerum quisquam perspiciatis quis inventore sequi, exercitationem facere pariatur ab officia unde a laborum quam? Asperiores, praesentium inventore?</p>
+          <button class="but1" onclick="del(event)">delete</button>
+        </div>
+    </div>
+    <div id="div3">
+         <button id="but2">+</button>
+    </div>
+    <div  id="div4">
+        <input id="int1" type="text" placeholder="enter book">
+        <input id="int2" type="text" placeholder="aurthor name">
+        <textarea id="int3" placeholder="short notes"></textarea>
+        <button id="but3">add</button>
+        <button id="but4">cancel</button>
+    </div>
+    <script>
+        var overlay=document.getElementById("overlay")
+        var div4=document.getElementById("div4")
+        var but2=document.getElementById("but2")
+        var container=document.getElementById("container")
+        but2.addEventListener("click",function (){
+            overlay.style.display="block";
+            div4.style.display="block";
+        })
+        var but4=document.getElementById("but4")
+        but4.addEventListener("click",function (){
+            overlay.style.display="none";
+            div4.style.display="none";
+        })
+        var but3=document.getElementById("but3")
+        but3.addEventListener("click",function(){
+         var div5=document.createElement("div")
+         div5.setAttribute("class","div2")
+        var int1=document.getElementById("int1").value
+        var int2=document.getElementById("int2").value
+        var int3=document.getElementById("int3").value
+            div5.innerHTML=`<h2>${int1}</h2>
+            <h3>${int2}</h3>
+            <p>${int3}</p>
+            <button class="but1" onclick="del(event)">delete</button>`
+            container.append(div5)
+            overlay.style.display="none";
+            div4.style.display="none";
+
+        })
+        function del(event){
+                event.target.parentElement.remove()
+        }
+
+
+    </script>
+    <style>
+        #div1{
+    background-color: rgb(237, 86, 86);
+    padding: 20px;
+    border-radius: 20px;
+
+}
+body{
+    font-family: 'poppins',sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#container{
+    padding: 20px;
+}
+.div2{
+    background-color: black;
+    color: white;
+    position: relative;
+    left:50px;
+    top:50px;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    width: 30%;
+    margin: 20px;
+    vertical-align: top;
+}
+.div2 h2{
+    color: rgb(236, 95, 118);
+}
+.but1{
+    background-color: rgb(228, 83, 107);
+    color: black;
+    margin-top: 10px;
+    border-radius: 40px;
+    padding: 6px;
+    border:none;
+}
+#but2{
+    background-color: rgb(200, 72, 93);
+    color: black;
+    border-radius: 100%;
+    position: fixed;
+    width:70px;
+    height: 70px;
+    bottom: 10px;
+    right:20px
+
+}
+#overlay{
+    background-color: black;
+    opacity: 0.8;
+    width:100%;
+    height: 100%;
+    position:absolute;
+    z-index: 1;
+    display: none;
+    top:0;
+}
+#div4{
+    background-color: rgb(220, 70, 95);
+    color: black;
+    position: absolute;
+    width: 300px;
+    z-index: 2;
+    top:200px;
+    left:40%;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+#int1,#int2{
+    background-color: transparent;
+    padding:10px;
+    display: inline-block;
+    width: 280px;
+    font-size: 15px;
+    border:none;
+    border-bottom: solid;
+    border:color(black);
+    margin-top: 5px;
+}
+#int3{
+    background-color: transparent;
+    color: black;
+    border: none;
+    width:280px;
+    border-bottom: solid;
+    border-color: black;
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 10px;
+}
+#but3,#but4{
+    background-color:black;
+    color: rgb(211, 69, 93);
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    position: relative;
+    top:10px;
+    
+}
+#div4 input::placeholder{
+    color: black;
+}
+#div4 textarea::placeholder{
+    color: black;
+}
+#div4 input:focus{
+    outline: none;
+}
+#div4 input:focus{
+    outline:none;
+}
+
+    </style>
+</body>
+</html>
